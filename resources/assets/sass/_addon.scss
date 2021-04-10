@@ -2,8 +2,8 @@
  * Add Notifcation block
  */
  .badge-notify {
-    position: absolute;
-    top: 5px;
+    position: absolute!important;
+    top: 5px!important;
     font-size: 50%;
     margin-left: 3px;
   }
