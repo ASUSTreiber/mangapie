@@ -14,7 +14,7 @@
         "laravel/framework": "^6.20",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.20",
-        "php-curl-class/php-curl-class": "^7.2",
+        "php-curl-class/php-curl-class": "^9.1",
         "predis/predis": "^1.1.1",
         "symfony/dom-crawler": "^5.2"
     },
