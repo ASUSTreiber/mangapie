@@ -12,21 +12,23 @@
 
 <div class="row mb-3">
     <div class="col text-right">
-        <button class="btn btn-primary @if ($user->display === 'list') active @endif" id="display-list" title="Display in a list">
-            <span class="fa fa-list"></span>
-        </button>
-
-        <button class="btn btn-primary @if ($user->display === 'grid') active @endif" id="display-grid" title="Display in a grid">
-            <span class="fa fa-th-large"></span>
-        </button>
-
-        <a href="{{ request()->fullUrlWithQuery(['sort' => 'asc']) }}" class="btn btn-primary @if ($sort === 'asc') active @endif" title="Display in ascending order">
-            <span class="fa fa-sort-alpha-asc"></span>
-        </a>
-
-        <a href="{{ request()->fullUrlWithQuery(['sort' => 'desc']) }}" class="btn btn-primary @if ($sort === 'desc') active @endif" title="Display in descending order">
-            <span class="fa fa-sort-alpha-desc"></span>
-        </a>
+    	<div class="btn-group" role="group">
+	        <button class="btn btn-primary @if ($user->display === 'list') active @endif" id="display-list" title="Display in a list">
+	            <span class="fa fa-list"></span>
+	        </button>
+	
+	        <button class="btn btn-primary @if ($user->display === 'grid') active @endif" id="display-grid" title="Display in a grid">
+	            <span class="fa fa-th-large"></span>
+	        </button>
+	
+	        <a href="{{ request()->fullUrlWithQuery(['sort' => 'asc']) }}" class="btn btn-primary @if ($sort === 'asc') active @endif" title="Display in ascending order">
+	            <span class="fa fa-sort-alpha-asc"></span>
+	        </a>
+	
+	        <a href="{{ request()->fullUrlWithQuery(['sort' => 'desc']) }}" class="btn btn-primary @if ($sort === 'desc') active @endif" title="Display in descending order">
+	            <span class="fa fa-sort-alpha-desc"></span>
+	        </a>
+        </div>
     </div>
     <div class="col">
         @php($libraries = \App\Library::all())
