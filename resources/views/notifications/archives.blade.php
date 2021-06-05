@@ -34,17 +34,13 @@
                                 <span class="fa fa-picture-o d-flex d-md-none"></span>
                                 <span class="d-none d-md-inline-flex">Cover</span>
                             </th>
-                            <th class="col">
+                            <th class="col-5 col-sm-8 col-lg-9">
                                 <span class="fa fa-envelope-open-text d-flex d-md-none"></span>
                                 <span class="d-none d-md-inline-flex">Series</span>
                             </th>
-                            <th class="col d-none d-md-flex">
+                            <th class="col-3 col-sm-2 col-lg-2 d-none d-md-flex">
                                 <span class="fa fa-envelope-open-text d-flex d-md-none"></span>
                                 <span class="d-none d-md-inline-flex">Message</span>
-                            </th>
-                            <th class="d-none col-md">
-                                <span class="fa fa-calendar d-flex d-md-none"></span>
-                                <span class="d-none d-md-inline-flex">Time</span>
                             </th>
                         </tr>
                         </thead>
@@ -75,13 +71,13 @@
                                 <th class="col-4 col-sm-2 col-lg-1">
                                     <div class="custom-image-checkbox">
                                         <input type="checkbox" id="notification-{{ $index }}" name="notification-{{ $index }}" value="{{ $series['id'] }}">
-                                        <label class=" text-center text-primary my-auto" for="notification-{{ $index }}">
+                                        <label class="text-center text-primary my-auto" for="notification-{{ $index }}">
                                             <img class="img-fluid" src="{{ URL::action('CoverController@smallDefault', [$series['id']]) }}" alt="Cover">
                                             <span class="fa fa-check"></span>
                                         </label>
                                     </div>
                                 </th>
-                                <td class="col text-truncate" style="text-overflow: ellipsis;">
+                                <td class="col-5 col-sm-8 col-lg-9" style="text-overflow: ellipsis;">
                                     <p>
                                         <strong>
                                             <a href="{{ URL::action('MangaController@files', [$series['id'], 'sort' => 'desc']) }}">{{ $series['name'] }}</a>
@@ -90,17 +86,13 @@
 
                                     <div class="row d-md-none">
                                         @foreach ($seriesArchives as $directory => $directoryArchives)
-                                            <ul>
-                                                <li><a href="{{ URL::action('MangaController@files', [$series['id'], 'filter' => $directory]) }}">{{ $directory }}</a>
-                                                    <ul>
+                                                    <ul class="list-unstyled pl-3">
                                                         @foreach ($directoryArchives as $archive)
                                                             <li>
                                                                 {{ \App\Scanner::simplifyName(\App\Scanner::removeExtension($archive['name'])) }}
                                                             </li>
                                                         @endforeach
                                                     </ul>
-                                                </li>
-                                            </ul>
                                         @endforeach
                                     </div>
 
@@ -108,26 +100,19 @@
                                         {{ $notification->created_at->diffForHumans() }}
                                     </p>
                                 </td>
-                                <td class="col d-none d-md-flex">
+                                <td class="col-3 col-sm-2 col-lg-2 d-none d-md-flex">
                                     <p class="d-none d-md-inline-block">
                                     @foreach ($seriesArchives as $directory => $directoryArchives)
-                                        <ul>
-                                            <li>
-                                                <a href="{{ URL::action('MangaController@files', [$series['id'], 'filter' => $directory]) }}">{{ $directory }}</a>
-                                                <ul>
+    										<a href="{{ URL::action('MangaController@files', [$series['id'], 'filter' => $directory]) }}">{{ $directory }}</a>
+                                                <ul class="list-unstyled">
                                                     @foreach ($directoryArchives as $archive)
                                                         <li>
                                                             {{ \App\Scanner::simplifyName(\App\Scanner::removeExtension($archive['name'])) }}
                                                         </li>
                                                     @endforeach
                                                 </ul>
-                                            </li>
-                                        </ul>
-                                    @endforeach
-                                    </p>
-                                </td>
-                                <td class="d-none col-md">
-                                    {{ $notification->created_at->diffForHumans() }}
+                                        @endforeach
+                                        </p>
                                 </td>
                             </tr>
                         @endforeach
