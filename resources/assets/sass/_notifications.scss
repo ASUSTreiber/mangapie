@@ -23,11 +23,11 @@
 
       & > span {
         display: block;
-        transform: translate(0, -92px);
         height: 0;
-
+        left: 20px;
+        transform: translate(0,-75px);
         font-size: 3.3em;
-        color: $white;
+        color: #fff;
         text-shadow: 1px 1px;
       }
     }
